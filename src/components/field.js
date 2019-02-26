@@ -5,6 +5,7 @@ const Field = (props) => (
         <input
             type="text"
             onChange={props.onChangeFallback}
+            placeholder='Write to update the label'
         />
         <label className="fancylabel">{props.fieldname}</label>
     </React.Fragment>

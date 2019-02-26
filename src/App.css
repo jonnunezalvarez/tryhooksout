@@ -1,3 +1,11 @@
+input[type=text], select, textarea {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
 .App {
   text-align: center;
 }
@@ -31,7 +39,8 @@
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 8vh;
+  font-size: 6vh;
   margin-top: 20px;
+  width: 1000px;
 }
 

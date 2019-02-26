@@ -5,15 +5,21 @@ import './App.css';
 import Field from './components/field';
 
 export default function HooksApp(props) {
-  const [name, setName] = useState('Walter');
-  const [surname, setSurname] = useState('White');
+  const name = useInputField('Walter');
+  const surname = useInputField('White');
 
-  function updateName(e) {
-    setName(e.target.value);
-  }
+  // THIS IS A HOOK!
+  function useInputField(initialValue) {
+    const [value, setValue] = useState(initialValue);
 
-  function updateSurname(e) {
-    setSurname(e.target.value);
+    function update(e) {
+      setValue(e.target.value);
+    }
+
+    return {
+      value,
+      onChange: update
+    }
   }
 
   return (
@@ -21,15 +27,10 @@ export default function HooksApp(props) {
       <header className="HooksApp-header">
         <h3>Simple App to try out how can we manipulate a component´s state with hooks!</h3>
 
-        <Field
-          onChangeFallback={updateName}
-          placeholder="name"
-        />
-        <Field
-          onChangeFallback={updateSurname}
-          placeholder="surname"
-        />
-        <label className="fancylabel">{name + ' ' + surname}</label>
+        <Field {...name} />
+        <Field {...surname} />
+        
+        <label className="fancylabel">{name.value + ' ' + surname.value}</label>
 
       </header>
     </div>

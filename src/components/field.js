@@ -4,8 +4,8 @@ export default (props) => (
     <React.Fragment>
         <input
             type="text"
-            onChange={props.onChangeFallback}
-            placeholder={props.placeholder}
+            onChange={props.onChange}
+            placeholder={props.value}
         />
     </React.Fragment>
 );

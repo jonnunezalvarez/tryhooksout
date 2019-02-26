@@ -36,11 +36,11 @@ class App extends Component {
           <h3>Simple App that is manipulating component´s state...</h3>
 
           <Field
-            onChangeFallback={this.updateName}
+            onChange={this.updateName}
             placeholder="name"
           />
           <Field
-            onChangeFallback={this.updateSurname}
+            onChange={this.updateSurname}
             placeholder="surname"
           />
           <label className="fancylabel">{this.state.name + ' ' + this.state.surname}</label>

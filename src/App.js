@@ -9,15 +9,23 @@ class App extends Component {
     super(props);
 
     this.state = {
-      fieldname: 'Initial text'
+      name: 'Bart',
+      surname: 'Simpson'
     };
 
-    this.updateLabel = this.updateLabel.bind(this);
+    this.updateName = this.updateName.bind(this);
+    this.updateSurname = this.updateSurname.bind(this);
   }
 
-  updateLabel(e) {
+  updateName(e) {
     this.setState({
-      fieldname: e.target.value
+      name: e.target.value
+    });
+  }
+
+  updateSurname(e) {
+    this.setState({
+      surname: e.target.value
     });
   }
 
@@ -28,9 +36,14 @@ class App extends Component {
           <h3>Simple App that is manipulating component´s state...</h3>
 
           <Field
-            fieldname={this.state.fieldname}
-            onChangeFallback={this.updateLabel}
+            onChangeFallback={this.updateName}
+            placeholder="name"
           />
+          <Field
+            onChangeFallback={this.updateSurname}
+            placeholder="surname"
+          />
+          <label className="fancylabel">{this.state.name + ' ' + this.state.surname}</label>
 
         </header>
       </div>
